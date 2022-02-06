@@ -3,34 +3,38 @@ SHELL = /bin/sh
 SUBDIRS = build libwchar libcommon libuxre _install \
 	banner basename bdiff bfs \
 	cal calendar cat chmod chown \
-	cksum cmp col comm copy cp csplit cut \
-	date dd deroff dircmp dirname df du \
+	cksum cmp comm copy csplit cut \
+	date deroff dircmp dirname df du \
 	echo ed env expand expr \
-	find file factor fmt fmtmsg fold \
+	find factor fmt fmtmsg fold \
 	getconf getopt grep groups hd head hostname id join \
-	kill line listusers ls ln logins logname \
+	kill line listusers ls logins logname \
 	mail man mesg mkdir mkfifo mknod more mvdir \
 	news nice nl nohup oawk od \
 	paste pathchk pg pgrep pr printenv printf priocntl ps psrinfo pwd \
-	random renice rm rmdir \
-	sdiff sed setpgrp shl sleep sort spell split stty su sum sync \
-	tail tar tapecntl tcopy tee test time touch tr true tsort tty \
-	ul uname uniq units users wc what who whoami whodo xargs yes 
-
+	random renice rmdir \
+	setpgrp shl sleep sort spell split stty sum sync \
+	tail tapecntl tcopy tee test time touch tr tsort tty \
+	ul uname uniq units users wc what who whoami whodo yes 
 
 # Unknown type 'mode_t' or sys/mkdev.h
 # cpio 
+# 
 # Multiple definition of "idk_what"
 # cpio diff diff3 tabs
+# 
 # unknown type name intptr_t
 # nawk
-# Supplied by others:
-# nawk, bc/dc, diff{,3}, tar
-# Note: we could also remove tar, since star will replace it;
-# but we will compile it and then replace with star anyway.
+# 
+# Lacks basic POSIX specification for nowadays:
+# rm, ln
+#
+# Supplied by others (lobase, star, independent packages):
+# bc/dc, col, colrm, cp, dd, diff{,3}, file, find, sdiff sed, su,
+# tar, true, xargs
 
-SKIPDIR = bc cpio dc diff diff3  \
-	  nawk tabs bc dc
+SKIPDIR = bc col cp cpio dc diff diff3 file find ln nawk rm sdiff \
+	  sed su tabs tar true xargs 
 
 dummy: makefiles all
 
