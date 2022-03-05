@@ -9,7 +9,7 @@ SUBDIRS = build libwchar libcommon libuxre _install \
 	find factor fmt fmtmsg fold \
 	getconf getopt grep groups hd head hostname id join \
 	kill line listusers ls logins logname \
-	mail man mesg mkdir mkfifo mknod more mvdir \
+	mail mesg mkdir more mvdir \
 	news nice nl nohup oawk od \
 	paste pathchk pg pgrep pr printenv printf priocntl ps psrinfo pwd \
 	random renice rmdir \
@@ -21,7 +21,7 @@ SUBDIRS = build libwchar libcommon libuxre _install \
 # cpio 
 # 
 # Multiple definition of "idk_what"
-# cpio diff diff3 tabs
+# cpio diff{,3} tabs
 # 
 # unknown type name intptr_t
 # nawk
@@ -29,12 +29,12 @@ SUBDIRS = build libwchar libcommon libuxre _install \
 # Lacks basic POSIX specification for nowadays:
 # rm, ln
 #
-# Supplied by others (lobase, star, independent packages):
-# bc/dc, col, colrm, cp, dd, diff{,3}, file, find, sdiff sed, su,
-# tar, true, xargs
+# Supplied by others (lobase, star, mandoc, independent packages et cetera):
+# bc/dc, col, colrm, cp, dd, {s,}diff{,3}, file, find, ln, man, mk{fifo,nod},
+# nawk, rm, sed, su, tabs, tar, true, xargs
 
-SKIPDIR = bc col cp cpio dc diff diff3 file find ln nawk rm sdiff \
-	  sed su tabs tar true xargs 
+SKIPDIR = bc col cp cpio dc diff diff3 file find ln man mkfifo mknod \
+	  nawk rm sdiff sed su tabs tar true xargs 
 
 dummy: makefiles all
 
