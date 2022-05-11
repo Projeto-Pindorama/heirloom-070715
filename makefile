@@ -1,40 +1,44 @@
 SHELL = /bin/sh
 
 SUBDIRS = build libwchar libcommon libuxre _install \
-	banner basename bdiff bfs \
-	cal calendar cat chmod chown \
+	banner basename bc bdiff bfs \
+	cal col cp calendar cat chmod chown \
 	cksum cmp comm copy csplit cut \
-	date deroff dircmp dirname df du \
-	echo ed env expand expr \
-	find factor fmt fmtmsg fold \
+	dc date deroff dircmp dirname df du \
+	diff diff3 echo ed env expand expr \
+	file find factor fmt fmtmsg fold \
 	getconf getopt grep groups hd head hostname id join \
-	kill line listusers ls logins logname \
-	mail mesg mkdir more mvdir \
+	kill line listusers ln ls logins logname \
+	mail mesg mkdir mkfifo mknod more mvdir \
 	news nice nl nohup oawk od \
 	paste pathchk pg pgrep pr printenv printf priocntl ps psrinfo pwd \
-	random renice rmdir \
-	setpgrp shl sleep sort spell split stty sum sync \
-	tail tapecntl tcopy tee test time touch tr tsort tty \
-	ul uname uniq units users wc what who whoami whodo yes 
+	random renice rm rmdir \
+	setpgrp shl sdiff sed sleep sort spell split stty sum sync \
+	tabs tail tapecntl tcopy tee test time touch tr tsort tty ul \
+       	uname uniq units users wc what who whoami whodo xargs yes
 
 # Unknown type 'mode_t' or sys/mkdev.h
 # cpio 
 # 
-# Multiple definition of "idk_what"
+# Multiple definition of "idk_what" --- May -fcommon on GCC can fix this,
+# although I have been trying to get it working since 2021 with no success.
 # cpio diff{,3} tabs
 # 
 # unknown type name intptr_t
 # nawk
 # 
-# Lacks basic POSIX specification for nowadays:
+# Lacks basic POSIX specification for nowadays, but we will be keeping these in
+# the system for historical and portability purposes, at /usr/5bin:
 # rm, ln
 #
 # Supplied by others (lobase, star, mandoc, independent packages et cetera):
 # bc/dc, col, colrm, cp, dd, {s,}diff{,3}, file, find, ln, man, mk{fifo,nod},
 # nawk, rm, sed, su, tabs, tar, true, xargs
 
-SKIPDIR = bc col cp cpio dc diff diff3 file find ln man mkfifo mknod \
-	  nawk rm sdiff sed su tabs tar true xargs 
+# In fact broken:
+# man, true
+
+SKIPDIR = cpio man nawk rm su tar true
 
 dummy: makefiles all
 
