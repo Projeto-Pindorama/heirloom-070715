@@ -38,7 +38,7 @@ SUBDIRS = build libwchar libcommon libuxre _install \
 # In fact broken:
 # man, true
 
-SKIPDIR = cpio man nawk rm su tar true
+SKIPDIR = cpio man nawk su tar true
 
 dummy: makefiles all
 
